@@ -12,6 +12,7 @@ setFlagsFromString('--no-incremental-marking');
 // The build is short-lived: skipping TurboFan's background optimisation keeps its compilation CPU
 // (counted in the timed run, which is the process's whole CPU time) out of the measurement.
 setFlagsFromString('--no-opt');
+setFlagsFromString('--no-concurrent-recompilation');
 
 /** solve.js, imported by its URL (a .js module carries no types) and typed by its contract. */
 const { run } = (await import(new URL('./solve.js', import.meta.url).href)) as { run: (input: unknown) => unknown };
